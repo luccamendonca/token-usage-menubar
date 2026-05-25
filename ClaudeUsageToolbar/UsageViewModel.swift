@@ -83,8 +83,11 @@ final class UsageViewModel: ObservableObject {
         let f = DateFormatter()
         f.locale = .autoupdatingCurrent
         f.timeZone = .autoupdatingCurrent
-        f.dateStyle = showDate ? .short : .none
-        f.timeStyle = showTime ? .short : .none
+        if showDate {
+            f.dateFormat = showTime ? "dd/MM HH:mm" : "dd/MM"
+        } else if showTime {
+            f.dateFormat = "HH:mm"
+        }
         return f.string(from: d)
     }
 
