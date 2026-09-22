@@ -6,3 +6,4 @@ build/
 xcuserdata/
 eval-loop/runs/
 
+nohup.out
